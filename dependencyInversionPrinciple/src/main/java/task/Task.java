@@ -29,7 +29,7 @@ public class Task implements ITask {
 
     @Override
     public void logWork(double hours) {
-        workedHours += hours;
+        this.workedHours += hours;
         logger.log(owner.getFirstName() + " logs " + hours + " hours to the task " + taskName);
     }
 
