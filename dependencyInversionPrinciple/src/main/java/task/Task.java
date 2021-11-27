@@ -1,12 +1,14 @@
 package task;
 
+import common.Status;
 import logger.ILogger;
 import notification.INotificationService;
 import person.IPerson;
 
 public class Task implements ITask {
     private ILogger logger;
-    private INotificationService emailService;
+    private INotificationService messageService;
+
     private String taskName;
     private IPerson owner;
     private double estimatedHours;
@@ -17,12 +19,12 @@ public class Task implements ITask {
                 IPerson owner,
                 double estimatedHours,
                 ILogger logger,
-                INotificationService emailService) {
+                INotificationService messageService) {
         this.taskName = taskName;
         this.owner = owner;
         this.estimatedHours = estimatedHours;
         this.logger = logger;
-        this.emailService = emailService;
+        this.messageService = messageService;
     }
 
     @Override
@@ -36,8 +38,8 @@ public class Task implements ITask {
         this.status = status;
         logger.log(owner.getFirstName() + " change the status of  " + taskName + " to " + status);
 
-        if (this.status == 2) {
-            emailService.sendMail(owner, taskName + " is completed");
+        if (this.status == Status.DONE.getValue()) {
+            messageService.sendMessage(owner, taskName + " is completed");
         }
     }
 
