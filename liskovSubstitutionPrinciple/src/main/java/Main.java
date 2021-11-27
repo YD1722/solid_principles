@@ -1,20 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        Manager countryManager = new Manager();
+        IManager countryManager = new Manager();
 
         countryManager.firstName = "Kudu";
         countryManager.lastName = "Nuwan";
         countryManager.salary = 8000;
         countryManager.getRatePerHour();
 
-//        Employee employee = new Employee();
-        Employee employee = new CEO();
 
-        employee.firstName = "YD";
-        employee.lastName = "Malli";
-        employee.salary = 7000;
-        employee.assignManager(countryManager);
+        IManager regionalManager = new Manager();
 
-        employee.getRatePerHour();
+        regionalManager.firstName = "Wele";
+        regionalManager.lastName = "Suda";
+        regionalManager.salary = 12131;
+        regionalManager.assignManager(countryManager);
+        regionalManager.getRatePerHour();
+
+
+        IEmployee ceo = new CEO();
+        ceo.firstName = "YD";
+        ceo.lastName = "Malli";
+        ceo.salary = 7000;
+        ceo.getRatePerHour();
     }
 }

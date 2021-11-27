@@ -1,9 +1,4 @@
-public class CEO extends Employee {
-    @Override
-    public void assignManager(Employee manager) {
-        throw new RuntimeException("WTF ? Assign some one to CEO ?");
-    }
-
+public class CEO extends IEmployee implements IExecutive {
     @Override
     public void getRatePerHour() {
         System.out.println(this.firstName + " " + this.lastName + " : " + salary / (4 * 20));
