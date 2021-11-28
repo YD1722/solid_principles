@@ -1,11 +1,10 @@
 package candidate;
 
-import service.ExecutiveService;
+import service.IEmployeeService;
 
 public class ExecutiveCandidate extends Candidate {
 
-    public ExecutiveCandidate(String firstName, String lastName) {
-        super(firstName, lastName);
-        this.setEmployeeService(new ExecutiveService());
+    public ExecutiveCandidate(String firstName, String lastName, IEmployeeService employeeService) {
+        super(firstName, lastName, employeeService);
     }
 }

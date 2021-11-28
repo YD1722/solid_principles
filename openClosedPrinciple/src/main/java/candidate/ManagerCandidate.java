@@ -1,10 +1,9 @@
 package candidate;
 
-import service.ManagerService;
+import service.IEmployeeService;
 
 public class ManagerCandidate extends Candidate implements IManagerCandidate {
-    public ManagerCandidate(String firstName, String lastName) {
-        super(firstName, lastName);
-        this.setEmployeeService(new ManagerService());
+    public ManagerCandidate(String firstName, String lastName, IEmployeeService employeeService) {
+        super(firstName, lastName, employeeService);
     }
 }

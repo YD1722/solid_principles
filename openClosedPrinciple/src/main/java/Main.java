@@ -1,8 +1,5 @@
-import candidate.Candidate;
-import candidate.ExecutiveCandidate;
 import candidate.ICandidate;
-import candidate.ManagerCandidate;
-import service.EmployeeService;
+import container.Factory;
 import employee.IEmployee;
 import service.IEmployeeService;
 
@@ -13,10 +10,10 @@ public class Main {
     public static void main(String[] args) {
         List<ICandidate> candidateList = new ArrayList<>();
 
-        candidateList.add(new ManagerCandidate("Tommy", "Shelby"));
-        candidateList.add(new Candidate("Arthur", "Shelby"));
-        candidateList.add(new Candidate("Michal", "Shelby"));
-        candidateList.add(new ExecutiveCandidate("Polly", "Shelby"));
+        candidateList.add(Factory.getManagerCandidate("Tommy", "Shelby"));
+        candidateList.add(Factory.getCandidate("Arthur", "Shelby"));
+        candidateList.add(Factory.getCandidate("Michal", "Shelby"));
+        candidateList.add(Factory.getExecutiveCandidate("Polly", "Shelby"));
 
         for (ICandidate candidate : candidateList) {
             IEmployeeService employeeService = candidate.getEmployeeService();

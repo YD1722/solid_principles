@@ -1,6 +1,5 @@
 package candidate;
 
-import service.EmployeeService;
 import service.IEmployeeService;
 
 public class Candidate implements ICandidate {
@@ -8,10 +7,10 @@ public class Candidate implements ICandidate {
     private String lastName;
     private IEmployeeService employeeService;
 
-    public Candidate(String firstName, String lastName) {
+    public Candidate(String firstName, String lastName, IEmployeeService employeeService) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.employeeService = new EmployeeService();
+        this.employeeService = employeeService;
     }
 
     public IEmployeeService getEmployeeService() {
